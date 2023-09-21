@@ -81,16 +81,24 @@ public class MemberController {
 			return "redirect:/loginView?msg=N";
 		}
 		session.setAttribute("login", login);
+		
+		// 아이디기억하기에 대한 체크가 되어있다면, 쿠키를 생성하여 클라이언트에 전달한다. 
+		
 		if(remember) {
 			//true쿠키 생성
 			Cookie cookie = new Cookie("rememberId", member.getMemId());
 			response.addCookie(cookie); //응답하는 객체에 담아서 전달
 		}else {
 			// 쿠키 삭제
-			Cookie cookie = new Cookie("rememberId","");
-			cookie.setMaxAge(0);  //쿠키뭐시기 날짜를0 으로 하면 사라짐
-			response.addCookie(cookie); //응답닿는 객체에 담아서 전달
+			Cookie cookie = new Cookie("rememberId",""); // 동일한 key값을 가지는 쿠키를 생성후 유효기간을 0으로 만든다. 
+			cookie.setMaxAge(0);  
+			// 유효기간 0 짜리 쿠키를 응답하는 객체에 담아서 전달한다. 
+			response.addCookie(cookie); 
 		}
+		
+		System.out.println(login);
+		
+		//로그인시 해당페이지로 들아가기. 
 		return "redirect:" + fromUrl;
 	}	
 	@RequestMapping("/logoutDo")
@@ -98,6 +106,8 @@ public class MemberController {
 				,HttpServletRequest request) {
 		//세션 종료
 		session.invalidate();
+		
+		
 		//현재 요청이 어느 URL을 바라보는지
 		String requestToURL =request.getRequestURI().toString();
 		System.out.println(requestToURL);

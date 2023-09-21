@@ -8,7 +8,8 @@ public class MemberVO {
 	private String profile_img;
     private String addr; 
 
-
+    public MemberVO() {
+    }
 	public MemberVO(String memId, String memPw, String memNm) {
 		this.memId = memId;
 		this.memPw = memPw;

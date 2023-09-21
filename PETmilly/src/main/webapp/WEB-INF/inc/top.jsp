@@ -64,9 +64,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">PETmilly</a>
+                    <a href="${pageContext.request.contextPath}" class="nav-item nav-link">PETmilly</a>
                     <a href="about.html" class="nav-item nav-link">브랜드스토리</a>
-                    <a href="service.html" class="nav-item nav-link">검색</a>
+                    
+                    <a href="about.html" class="nav-item nav-link">진료비 확인하기</a>
+                    <a href="${pageContext.request.contextPath}/SearchAH" class="nav-item nav-link">검색</a>
                     <a href="price.html" class="nav-item nav-link">구독</a>
                     
                     <div class="nav-item dropdown">
@@ -77,9 +79,26 @@
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">더 가까이</a>
+                    
+                    <a href="${pageContext.request.contextPath}/ReviewboardView"class="nav-item nav-link">회원 게시판</a>
          
                     <a href="${pageContext.request.contextPath}/registView" class="nav-item nav-link">회원가입</a>
                     <a href="${pageContext.request.contextPath}/loginView" class="nav-item nav-link">로그인</a>
+                 <c:if test="${sessionScope.login == null}">
+                    <a href="${pageContext.request.contextPath}/registView" class="nav-item nav-link">회원가입</a>
+                    <a href="${pageContext.request.contextPath}/loginView" class="nav-item nav-link">로그인</a>
+<!-- 					<li class="nav-item mx-0 mx-lg-1"><a -->
+<!-- 						class="nav-link py-3 px-0 px-lg-3 rounded" -->
+<%-- 						href="${pageContext.request.contextPath}/loginView">로그인</a></li> --%>
+<!-- 					<li class="nav-item mx-0 mx-lg-1"><a -->
+<!-- 						class="nav-link py-3 px-0 px-lg-3 rounded" -->
+<%-- 						href="${pageContext.request.contextPath}/registView">회원가입</a></li> --%>
+				 </c:if>
+				 <c:if test="${sessionScope.login != null}">
+					<a href="${pageContext.request.contextPath }/mypage" class="nav-item nav-link" >
+							${sessionScope.login.memId}님 </a>
+					<a href="${pageContext.request.contextPath}/logoutDo" class="nav-item nav-link" >로그아웃</a>
+				</c:if>
                 </div>
                 <!-- <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">진료비 확인하러가기</a> -->
             </div>

@@ -16,7 +16,7 @@
   					<div class="row">
     					<div class="col-12 text-center">
                 			<h1 class="text display-3 mb-5" style="color: #ff4800;"><img src="img/user.jpg" width="100px" height="100px">PETmilly <br> </h1>
-                			<h1 class="text display-3 mb-5">회원가입</h1>
+                			<h1 class="text display-3 mb-5">로그인</h1>
                			</div>
   					</div>
 				</div>
@@ -24,28 +24,32 @@
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <form method="post" action="<c:url value="/registDo" />" >
+                        <form method="post" action="<c:url value="/loginDo" />" >
+                        <!-- id input -->
                         	<div class="m-0 display-5 text-uppercase text-primary">
                         		<label style="font-size: 24px; font-weight: bold;" >아이디</label>
-                        		<input class="form-control" name="id" type="text" 
-                        		   placeholder="아이디를 입력해주세요 ">
+                        		<input class="form-control" name="memId" type="text" 
+                        		   placeholder="아이디를 입력해주세요 " value= "${cookie.rememberId.value }" />
                         		
                         	</div>
                         	<br>
+                        <!-- password input -->
                         	<div class="m-0 display-5 text-uppercase text-primary">
                         		<label style="font-size: 24px; font-weight: bold;" >비밀번호</label>
-                        		<input class="form-control" name="pw" type="password" 
+                        		<input class="form-control" name="memPw" type="password" 
                         		   placeholder="비밀번호를 입력해주세요 ">
-                        		
+                     
                         	</div>
                         	<br>
-                        	<div class="m-0 display-5 text-uppercase text-primary">
-                        		<label style="font-size: 24px; font-weight: bold;" >이름</label>
-                        		<input class="form-control" name="nm" type="text" 
-                        		   placeholder="이름을 입력해주세요">
-                        	</div>
+                        	
+                        <!-- password remember -->
+                        	<div class="m-0 display-5 text-uppercase text-primary" text-align:center>
+                        		<div class="m-0 display-5 text-uppercase text-primary" style="text-align: center;">
+    								<input class="form-check-input" id="remember" name="remember" type="checkbox" ${cookie.rememberId.value == null ? '' : 'checked'} />
+   									 아이디 기억하기
+								</div>
                         	<br>
-                        	<button class="btn btn-primary btn-xl" type="submit">가입하기</button>
+                     		<button class="btn btn-primary btn-xl" type="submit"> 확인 </button>
                         </form>
                     </div>
                 </div>
