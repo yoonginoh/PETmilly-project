@@ -82,8 +82,8 @@
                     
                     <a href="${pageContext.request.contextPath}/ReviewboardView"class="nav-item nav-link">회원 게시판</a>
          
-                    <a href="${pageContext.request.contextPath}/registView" class="nav-item nav-link">회원가입</a>
-                    <a href="${pageContext.request.contextPath}/loginView" class="nav-item nav-link">로그인</a>
+                 <%--    <a href="${pageContext.request.contextPath}/registView" class="nav-item nav-link">회원가입</a>
+                    <a href="${pageContext.request.contextPath}/loginView" class="nav-item nav-link">로그인</a> --%>
                  <c:if test="${sessionScope.login == null}">
                     <a href="${pageContext.request.contextPath}/registView" class="nav-item nav-link">회원가입</a>
                     <a href="${pageContext.request.contextPath}/loginView" class="nav-item nav-link">로그인</a>

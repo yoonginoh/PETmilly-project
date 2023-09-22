@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petmilly.my.searchAH.dao.SearchAHDAO">
+    <select id="getSearchList" resultType="com.petmilly.my.searchAH.vo.SearchAHVO">
+      select a.사업장명 as AHName
+  		   , a.영업상태구분코드 as AHStatus
+   		  , a.X좌표정보 as longitude
+   		  , a.y좌표정보 as latitude
+   		  , a.소재지전화 as AHPhonenm
+   		  , a.소재지전체주소 as AHAddress
+	 from AHList a
+	 where a.영업상태구분코드 = 3
+    </select>
+</mapper>
