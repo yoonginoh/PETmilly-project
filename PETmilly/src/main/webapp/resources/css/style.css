@@ -510,6 +510,12 @@ mark,
   text-transform: uppercase;
 }
 
+/* active 클래스를 가진 요소에 대해 */
+.autocomplete > div.active {
+  background: #333;
+  color: #eee;
+}
+
 .blockquote {
   margin-bottom: 1rem;
   font-size: 1.25rem;

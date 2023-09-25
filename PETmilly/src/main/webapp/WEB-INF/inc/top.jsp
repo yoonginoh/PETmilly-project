@@ -56,7 +56,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="index.html" class="navbar-brand ml-lg-3">
+            <a href="${pageContext.request.contextPath}" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><img src="img/user.jpg" width="50px" height="50px"> PETmilly</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -65,20 +65,19 @@
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
                     <a href="${pageContext.request.contextPath}" class="nav-item nav-link">PETmilly</a>
-                    <a href="about.html" class="nav-item nav-link">브랜드스토리</a>
-                    
+<!--                     <a href="about.html" class="nav-item nav-link">브랜드스토리</a> -->
                     <a href="about.html" class="nav-item nav-link">진료비 확인하기</a>
-                    <a href="${pageContext.request.contextPath}/SearchAH" class="nav-item nav-link">검색</a>
-                    <a href="price.html" class="nav-item nav-link">구독</a>
+                    <a href="${pageContext.request.contextPath}/SearchAH" class="nav-item nav-link">동물병원 검색</a>
+                    <a href="${pageContext.request.contextPath}/Disease" class="nav-item nav-link">증상별 질병 검색</a>
                     
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PET이야기</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="single.html" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">더 가까이</a>
+<!--                     <div class="nav-item dropdown"> -->
+<!--                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PET이야기</a> -->
+<!--                         <div class="dropdown-menu rounded-0 m-0"> -->
+<!--                             <a href="blog.html" class="dropdown-item">Blog Grid</a> -->
+<!--                             <a href="single.html" class="dropdown-item">Blog Detail</a> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                     <a href="contact.html" class="nav-item nav-link">더 가까이</a> -->
                     
                     <a href="${pageContext.request.contextPath}/ReviewboardView"class="nav-item nav-link">회원 게시판</a>
          

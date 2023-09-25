@@ -5,8 +5,8 @@ public class SearchAHVO {
     private String AHAddress;
     private String AHStatus;
     private String AHPhonenm;
-    private Integer longitude;
-    private Integer latitude;
+    private Double longitude;
+    private Double latitude;
     
 	public SearchAHVO() {
 	}
@@ -43,19 +43,19 @@ public class SearchAHVO {
 		AHPhonenm = aHPhonenm;
 	}
 
-	public Integer getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Integer longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
-	public Integer getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Integer latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 

@@ -10,5 +10,9 @@
    		  , a.소재지전체주소 as AHAddress
 	 from AHList a
 	 where a.영업상태구분코드 = 3
+	 AND a.X좌표정보 IS NOT NULL
+     AND a.y좌표정보 IS NOT NULL
+	 
     </select>
 </mapper>
+
