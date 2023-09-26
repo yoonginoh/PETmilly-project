@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petmilly.my.reviewboard.dao.IReviewboardDAO">
+    <insert id="writeBoard" parameterType="BoardVO">
+	INSERT INTO reviewboards(
+	                   reviewboard_no
+	                 , reviewboard_title
+	                 , reviewboard_content
+	                 , mem_id
+	                 , AHName
+	                 ) 
+			VALUES (
+			          (SELECT NVL(MAX(reviewboard_no),0)+1 FROM reviewboards) 
+			         , #{reviewboardTitle}
+			         , #{reviewboardContent}
+			         , #{memId}
+			         , #{reviewboardAHName}
+			         )
+</insert>
+    
+    <select id="getBoardList" resultType="com.petmilly.my.reviewboard.vo.ReviewBoardVO">
+        SELECT 
+            a.reviewboard_no
+            , a.reviewboard_title
+            , a.reviewboard_content
+            , a.mem_id
+            , b.mem_nm
+            , a.update_date
+            , a.AHName as reviewboardAHName
+        FROM
+            reviewboards a, pet_members b
+        WHERE a.mem_id = b.mem_id
+    </select>
+    
+    <select id="getBoard" resultType="BoardVO" parameterType="int">
+	SELECT a.reviewboard_no
+	     , a.reviewboard_title
+	     , a.reviewboard_content
+	     , b.mem_id
+	     , b.mem_nm
+	     , a.create_date
+	     , a.update_date
+	FROM reviewboards a, pet_members b
+	WHERE a.mem_id = b.mem_id 
+	AND   a.reviewboard_no = #{boardNo}
+</select>
+<select id="searchBoardList" resultType="BoardVO" parameterType="com.petmilly.my.commons.SearchVO">
+	SELECT a.board_no
+	     , a.board_title
+	     , a.board_content
+	     , b.mem_id
+	     , b.mem_nm
+	     , a.create_date
+	     , a.update_date
+	FROM board a
+	    ,member b
+	WHERE a.mem_id = b.mem_id 
+	AND   a.del_yn ='N'
+	<choose>
+	    <when test='searchOption=="title"'>
+	        AND a.board_title LIKE '%' || #{keyword} || '%'
+	    </when>
+	    <when test='searchOption=="content"'>
+	    	AND a.board_content LIKE '%' || #{keyword} || '%'
+	    </when>
+	    <when test='searchOption=="name"'>
+	    	AND b.mem_nm LIKE '%' || #{keyword} || '%'
+	    </when>
+	</choose>
+	ORDER BY a.update_date DESC
+
+</select>
+
+</mapper>
